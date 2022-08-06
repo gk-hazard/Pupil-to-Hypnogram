@@ -8,9 +8,6 @@ This repository contains MATLAB and Python code for our papers ([Keio Journal of
 an End to end sleep stage classification using pupil dynamics is available.
 
 ## Highlights
-- Sleep stage classifier using pupil dynamics and LSTM, the Recurrent Neural Network was proposed.
-- The accuracy and F1 Score of our classifier for new animals has reached 86% and 0.77.
-- It is found that the performance was improved when eye opening, pupil location, and pupil velocity were used in addition to pupil diameter alone.
 
 ## Steps to create hypnograms from pupil videos
 ### 1. DeepLabCut (DLC)
