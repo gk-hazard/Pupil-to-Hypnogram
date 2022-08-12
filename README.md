@@ -3,12 +3,13 @@
 
 
 
-This repository contains MATLAB and Python code for our papers ([Keio Journal of Medicine]() and [bioRxiv](https://biorxiv.org/cgi/content/short/2022.08.06.503067v1))__"Pupil dynamics-derived sleep stage classification of a head-fixed mouse using a recurrent neural network"__
+This repository contains MATLAB and Python code for our papers ([bioRxiv](https://biorxiv.org/cgi/content/short/2022.08.06.503067v1))__"Pupil dynamics-derived sleep stage classification of a head-fixed mouse using a recurrent neural network"__
 
 an End to end sleep stage classification using pupil dynamics is available.
 
 ## Workfolw
 Only a **pupil video** and its **timestamp** are required to conduct vigilance state classification.
+**you can get timestamp from mp4 even if you don't have it.**
 ![githubworkflow](https://user-images.githubusercontent.com/78021878/183596775-50cd8868-1985-40a0-baff-8ff83e67b2c1.png)
 
 ## Highlights
@@ -48,4 +49,9 @@ Estimate vigilance states from pupil dynamics features.
     - estimatedHypnoScore.csv (HypnoScore)
     - LSTMestimation.png
 
+## Way to get timestamp from mp4
+- Inputs: 
+    - SNT267_0806.mp4 (pupil video)
+- Outputs:
+    - video_02.txt
 ## Software environment
