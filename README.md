@@ -1,57 +1,68 @@
-# Codes for the manuscript: Pupil dynamics-derived sleep stage classification of a head-fixed mouse using a recurrent neural network
+# Pupil-based hypnogram
+This repository contains Python and MATLAB codes for our paper ([bioRxiv](https://biorxiv.org/cgi/content/short/2022.08.06.503067v1)) __"Pupil dynamics-derived sleep stage classification of a head-fixed mouse using a recurrent neural network"__. Sample data are available at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1).
+
 ![P2Hgithub](https://user-images.githubusercontent.com/78021878/183251903-d4405d1e-f726-40ab-9bb6-3092c67f6ce2.gif)
 
-
-
-This repository contains MATLAB and Python code for our papers ([bioRxiv](https://biorxiv.org/cgi/content/short/2022.08.06.503067v1))__"Pupil dynamics-derived sleep stage classification of a head-fixed mouse using a recurrent neural network"__
-
-an End to end sleep stage classification using pupil dynamics is available.
+## Highlights
+-	A pupil dynamics-based vigilance state classification of a head-fixed mouse using a log short-term memory (LSTM) model was proposed.
+-   The necessary inputs are 1) a pupil video in MPEG-4 format, and 2) its timestamp in a text format.
+-   Vigilance states (REM, NREM, WAKE) are estimated every 10 s.
+-   The LSTM model achieved an accuracy of 86%, and a macro averaged F1-score of 0.77.
+-	A pupil-based hypnogram would be particularly compatible with wide-field imaging of cortical activity.
 
 ## Workfolw
-Only a **pupil video** and its **timestamp** are required to conduct vigilance state classification.
-**you can get timestamp from mp4 even if you don't have it.**
 ![githubworkflow](https://user-images.githubusercontent.com/78021878/183596775-50cd8868-1985-40a0-baff-8ff83e67b2c1.png)
 
-## Highlights
--	A pupil dynamics-based vigilance state classification of a head-fixes mouse using a log short-term memory (LSTM) model was proposed.
--	The LSTM model achieved high classification performance (macro F1 score, 0.77; accuracy, 86%) using 10 s pupil dynamics as input.
--	Our method using pupil dynamics would be compatible to a wide-field calcium imaging and functional MRI of the cortex.
--	Sample data for implementing vigilance state classification from pupil dynamics is available at https://data.mendeley.com/datasets/rr4gc6mybg/1
+## Steps for a pupil-based hypnogram
+### 0. Preparation of a pupil movie of a head-fixed mouse
+Prior habituation of a mouse for a head restrained condition is necesasry.
 
-## Steps to create hypnograms from pupil videos
-### 1. DeepLabCut (DLC)
-Obtain pupil coordinates from a left pupil video
-- Inputs: 
-    - SNT267_0806.mp4 (pupil video)
+We used a conventional USB camera (BSW200MBK; Buffalo Inc.) and an IR light (940 nm, FRS5 JS; OptoSupply Ltd.).
+- A pupil video in MPEG-4 format
+- Its timestamp in a text format
 
+### 1. Pupil tracking with DeepLabCut (DLC)
+We explain the steps using the file names of the sample data at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1).
+- Code:
+    - `DLC.ipynb`
+- Input: 
+    - A pupil video (*SNT267_0806.mp4*)
 - Outputs: 
-    - SNT267_0806DLC_resnet50_DLCJul19shuffle1_280000_labeled.mp4 (a labeled pupil video)
-    - SNT267_0806DLC_resnet50_DLCJul19shuffle1_1030000.csv (coordinates which characterizes the pupil)
-### 2. MATLAB
-Extract feature inputs from pupil time-series coordinates.
--   Inputs:
-    -   SNT267_0806DLC_resnet50_DLCJul19shuffle1_1030000.csv
-    - video_01.txt (video timestamp)
-- Outputs:
-    - PD_ratio10Hz.csv (Pupil Diameter)
-    - PupilLocation10Hz.csv (Pupil center Location)
-    - Pupil_velocity10Hz.csv (Pupil Velocity)
-    - EyeOpening_ratio10Hz.csv (Eyelid Opeining)
-
-### 3. LSTM
-Estimate vigilance states from pupil dynamics features.
+    - A csv file for time-series of pupil position coordinate (*SNT267_0806DLC_resnet50_DLCJul19shuffle1_1030000.csv*)
+    - A labeled pupil video (*SNT267_0806DLC_resnet50_DLCJul19shuffle1_280000_labeled.mp4*)
+    
+### 2. Pupil feature extraction with a MATLAB code
+- Code:
+    - `scr202003111702_practive_getPupilTimecouse.mlx`
 - Inputs:
-    - PD_ratio10Hz.csv
-    - PupilLocation10Hz.csv
-    - Pupil_velocity10Hz.csv
-    - EyeOpening_ratio10Hz.csv
+    - The csv file for pupil coordinates
+    - The timestamp file (*video_01.txt*)
 - Outputs:
-    - estimatedHypnoScore.csv (HypnoScore)
-    - LSTMestimation.png
+    - Pupil feature csv files
+        - Pupil Diameter (*PD_ratio10Hz.csv*)
+        - Pupil center Location (*PupilLocation10Hz.csv*)
+        - Pupil Velocity (*Pupil_velocity10Hz.csv*)
+        - Eyelid Opening (*EyeOpening_ratio10Hz.csv*)
 
-## Way to get timestamp from mp4
-- Inputs: 
-    - SNT267_0806.mp4 (pupil video)
+### 3. Vigilance states estimation with an LSTM model
+- Code:
+    - `LSTM.ipynb`
+- Inputs:
+    - The pupil feature csv files
 - Outputs:
-    - video_02.txt
+    - A csv file for a pupil-derived hypnogram (*estimatedHypnoScore.csv*)
+    - A figure for a pupil-derived hypnogram (*LSTMestimation.png*)
+
+## About a timestamp of a mp4 file
+While you might be able to retrieve timestamps of a mp4 file using the code below, they might be inaccurate. We used a custom written LabVIEW code to obtain timestamps in our study.
+- Code:
+    - `GetTextFrommp4.ipynb`
+- Input: 
+    - a pupil video (*SNT267_0806.mp4*)
+- Output:
+    - a timestamp text file (*video_02.txt*)
+
 ## Software environment
+- DeepLabCut ver. 2.2rc3
+- Matlab 2020a
+- PyTorch ver. 1.12.0
