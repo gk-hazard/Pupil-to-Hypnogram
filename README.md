@@ -11,7 +11,7 @@ This repository contains Python and MATLAB codes for our paper ([bioRxiv](https:
 -	A pupil-based hypnogram would be particularly compatible with wide-field imaging of cortical activity.
 
 ## Workfolw
-![githubworkflow](https://user-images.githubusercontent.com/78021878/183596775-50cd8868-1985-40a0-baff-8ff83e67b2c1.png)
+![githubworkflow](https://user-images.githubusercontent.com/78021878/184583324-f9242d74-7874-438d-90a4-c920c0a70a6f.png)
 
 ## Steps for a pupil-based hypnogram
 ### 0. Preparation of a pupil movie of a head-fixed mouse
@@ -33,7 +33,7 @@ We explain the steps using the file names of the sample data at [Mendeley Data](
     
 ### 2. Pupil feature extraction with a MATLAB code
 - Code:
-    - `scr202003111702_practive_getPupilTimecouse.mlx`
+    - `GetPupilfeature.mlx`
 - Inputs:
     - The csv file for pupil coordinates
     - The timestamp file (*video_01.txt*)
