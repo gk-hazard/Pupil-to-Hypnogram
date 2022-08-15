@@ -22,7 +22,7 @@ We used a conventional USB camera (BSW200MBK; Buffalo Inc.) and an IR light (940
 - Its timestamp in a text format
 
 ### 1. Pupil tracking with DeepLabCut (DLC)
-We explain the steps using the file names of the sample data at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1).
+We explain the steps using the *file names* of the sample data at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1).
 - Code:
     - `DLC.ipynb`
 - Input: 
@@ -53,7 +53,7 @@ We explain the steps using the file names of the sample data at [Mendeley Data](
     - A csv file for a pupil-derived hypnogram (*estimatedHypnoScore.csv*)
     - A figure for a pupil-derived hypnogram (*LSTMestimation.png*)
 
-## About a timestamp of a mp4 file
+## About a timestamp of an mp4 file
 While you might be able to retrieve timestamps of a mp4 file using the code below, they might be inaccurate. We used a custom written LabVIEW code to obtain timestamps in our study.
 - Code:
     - `GetTextFrommp4.ipynb`
