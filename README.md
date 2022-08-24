@@ -22,7 +22,7 @@ We used a conventional USB camera (BSW200MBK; Buffalo Inc.) and an IR light (940
 - Its timestamp in a text format
 
 ### 1. Pupil tracking with DeepLabCut (DLC)
-We explain the steps using the *file names* of the sample data at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1).
+We explain the steps using the *file names* of the sample data at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1) (Put the sample data [Inputs, Intermediate, and Outputs folders] directly in the Data folder).
 - Code:
     - `DLC.ipynb`
 - Input: 
