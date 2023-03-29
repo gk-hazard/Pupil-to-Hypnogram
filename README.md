@@ -1,5 +1,5 @@
 # Pupil-based hypnogram
-This repository contains Python and MATLAB codes for our paper ([bioRxiv](https://biorxiv.org/cgi/content/short/2022.08.06.503067v1)) __"Pupil dynamics-derived sleep stage classification of a head-fixed mouse using a recurrent neural network"__. Sample data are available at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1).
+This repository contains Python and MATLAB codes for our paper ([Keio J Med 2023](https://doi.org/10.2302/kjm.2022-0020-OA) and [bioRxiv](https://biorxiv.org/cgi/content/short/2022.08.06.503067v1)) __"Pupil dynamics-derived sleep stage classification of a head-fixed mouse using a recurrent neural network"__. Sample data are available at [Mendeley Data](https://doi.org/10.17632/rr4gc6mybg.1).
 
 ![P2Hgithub](https://user-images.githubusercontent.com/78021878/183251903-d4405d1e-f726-40ab-9bb6-3092c67f6ce2.gif)
 
